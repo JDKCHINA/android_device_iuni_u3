@@ -30,7 +30,8 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>5</item>
+        <item>2</item>
+        <item>7</item>
         <item>15</item>
         <item>50</item>
         <item>100</item>
@@ -49,7 +50,8 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>25</item>   <!-- 0-5 -->
+        <item>13</item>   <!-- 0-2 -->
+        <item>25</item>   <!-- 3-7 -->
         <item>32</item>   <!-- 5-15 -->
         <item>41</item>   <!-- 15-50 -->
         <item>52</item>   <!-- 50-100 -->
@@ -109,7 +111,12 @@
     <!-- Default color for notification LED is white. -->
     <color name="config_defaultNotificationColor">#ffffffff</color>
 
-    <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
+    <!-- Does the notification LED support multiple colors?
+         Used to decide if the user can change the colors -->
+    <bool name="config_multiColorNotificationLed">true</bool>
+
+    <!-- Does the battery LED support multiple colors?
+         Used to decide if the user can change the colors -->
     <bool name="config_multiColorBatteryLed">true</bool>
 
     <!-- Indicate the device's Smart Cover coordinates.
@@ -136,13 +143,15 @@
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>21</item>
-        <item>30</item>
+        <item>25</item>
+        <item>10</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about touching a virtual key -->
     <integer-array name="config_virtualKeyVibePattern">
-        <item>30</item>
+        <item>0</item>
+        <item>25</item>
+        <item>8</item>
     </integer-array>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
@@ -150,4 +159,9 @@
         <item>25</item>
     </integer-array>
 
+    <!-- Doze mode -->
+    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <integer name="config_screenBrightnessDoze">5</integer>
+    <bool name="config_dozeAfterScreenOff">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 </resources>
