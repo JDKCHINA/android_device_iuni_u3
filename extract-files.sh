@@ -1,9 +1,7 @@
 #!/bin/sh
 
-#Use Traditional sorting
-export LC_ALL=C
+set -e
 
-FP=$(cd ${0%/*} && pwd -P)
-export VENDOR=$(basename $(dirname $FP))
-export DEVICE=$(basename $FP)
+export VENDOR=iuni
+export DEVICE=u3
 ./../../iuni/msm8974-common/extract-files.sh $@
